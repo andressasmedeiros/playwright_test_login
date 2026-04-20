@@ -20,25 +20,11 @@ Este projeto contém testes automatizados utilizando Playwright para validar:
 
 ```bash
 tests/
-  auth.setup.ts
   login.spec.ts
   products.spec.ts
 
 playwright.config.ts
-storageState.json
 ```
-
----
-
-## Login automático
-
-O arquivo `auth.setup.ts` realiza o login e salva a sessão em:
-
-```bash
-storageState.json
-```
-
-Isso permite acessar páginas autenticadas sem repetir o login em todos os testes.
 
 ---
 
@@ -57,18 +43,6 @@ Isso permite acessar páginas autenticadas sem repetir o login em todos os teste
 
 ---
 
-## Configuração
-
-No arquivo `playwright.config.ts`:
-
-```ts
-use: {
-  storageState: 'storageState.json',
-}
-```
-
----
-
 ## Como executar
 
 ### 1. Instalar dependências
@@ -77,26 +51,11 @@ use: {
 npm install
 npx playwright install
 ```
-
-### 2. Gerar sessão de login
-
-```bash
-npx playwright test auth.setup.ts
-```
-
-### 3. Rodar os testes
+### 2. Rodar os testes
 
 ```bash
 npx playwright test
 ```
-
----
-
-## Observações
-
-* O login automático evita repetição de código
-* Os testes de login são separados para validar cenários reais
-* Se a sessão expirar, execute novamente o `auth.setup.ts`
 
 ---
 
